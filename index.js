@@ -46,7 +46,7 @@ app.post("/login",async(req,res)=>{
        res.send(err)
     }
 })
-const tokenVerify = async (req, res, next) => {
+const tokenVerify = (req, res, next) => {
     try {
       const token = req.cookies.jwt;
       if (!token) {
@@ -107,7 +107,7 @@ const hashverify=async(data,userpassword)=>{
 }
 
 
-const tokengenerator=async(email)=>{
+const tokengenerator=(email)=>{
 
     try{
         const token=jwttoken.sign(
