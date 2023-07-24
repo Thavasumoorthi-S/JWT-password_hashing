@@ -55,7 +55,7 @@ const tokenVerify = async (req, res, next) => {
   
       try {
         jwttoken.verify(token, secretkey);
-        return next();
+        next();
       } catch (err) {
         return res.status(401).send("Access Denied Invalid JWT");
       }
